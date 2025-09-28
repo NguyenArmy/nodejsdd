@@ -1,10 +1,15 @@
 import { Request, Response } from "express";
-import { get } from 'http';
 
+import { handleCreateUser, getAllUsers, handleDeleteUser, getUserById, updateUserById } from "services/user.service";
 
-const getHomePage = (req: Request, res: Response) => {
+const getHomePage = async (req: Request, res: Response) => {
+    //get users
+    const users = await getAllUsers();
 
-    return res.render("home")
+    return res.render("home", {
+        users: users
+    }
+    );
 
 }
 const getCreateUserPage = (req: Request, res: Response) => {
@@ -12,10 +17,43 @@ const getCreateUserPage = (req: Request, res: Response) => {
     return res.render("create-use")
 
 }
-const postCreateUserPage = (req: Request, res: Response) => {
-    console.log("check req body: ", req.body)
+const postCreateUserPage = async (req: Request, res: Response) => {
+
+    const { fullname, email, address } = req.body;
+    //handle create user
+    const a = await handleCreateUser(fullname, email, address)
     return res.redirect("/")
 
 }
+const postDeleteUser = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await handleDeleteUser(id);
+    return res.redirect("/")
 
-export { getHomePage, getCreateUserPage, postCreateUserPage };
+}
+const getViewUser = async (req: Request, res: Response) => {
+    const { id } = req.params;
+
+    //get user by id
+    const user = await getUserById(id);
+    return res.render("view-user.ejs", {
+        id: id,
+        user: user
+    })
+
+
+}
+const postUpdateUser = async (req: Request, res: Response) => {
+    const { id, email, address, fullName } = req.body;
+
+    //update user by id
+    const a = await updateUserById(id, email, address, fullName);
+    return res.redirect("/")
+
+
+
+}
+
+
+
+export { getHomePage, getCreateUserPage, postCreateUserPage, postDeleteUser, getViewUser, postUpdateUser };
