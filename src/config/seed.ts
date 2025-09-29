@@ -17,7 +17,7 @@ const initDatabase = async () => {
         }
         )
     } else {
-        console.log("Database already seeded")
+        //console.log("Database already seeded")
     };
 
 
