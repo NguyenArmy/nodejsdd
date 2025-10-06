@@ -1,0 +1,15 @@
+import { Request, Response } from "express";
+
+const getAdminCreateProductPage = async (req: Request, res: Response) => {
+    return res.render("admin/product/create.ejs");
+}
+const postAdminCreateProductPage = async (req: Request, res: Response) => {
+    return res.redirect("/admin/product");
+}
+
+
+
+
+
+
+export { getAdminCreateProductPage, postAdminCreateProductPage };

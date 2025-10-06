@@ -9,7 +9,8 @@
     <meta name="author" content="Hỏi Dân IT" />
     <title>Create Users - Hỏi Dân IT</title>
 
-    <link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
+
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -51,21 +52,21 @@
                                                 </div>
                                                 <div class="row">
                                                      <div class="mb-3 col-6" >
-    <label  class="form-label">Phone</label>
-    <input type="text" class="form-control" name="phone">
-  </div>
-  <div class="mb-3 col-6">
-    <label  class="form-label">Role</label>
-    <select name="role"  class="form-select">
+                                                        <label  class="form-label">Phone</label>
+                                                  <input type="text" class="form-control" name="phone">
+                                                       </div>
+                                                        <div class="mb-3 col-6">
+                                                  <label  class="form-label">Role</label>
+                                     <select name="role"  class="form-select">
     
-<% roles.forEach((role,index) => { %>
-  <option value="<%-role.id %>" >
-    <%- role.username %>
-  </option>
-<%})%>
+                                                <% roles.forEach((role,index) => { %>
+                                             <option value="<%-role.id %>" >
+                                                     <%- role.username %>
+                                                                </option>
+                                                            <%})%>
   
-    </select>
-  </div>
+                                                                         </select>
+                                                                         </div>
                                                 </div>
                                                
 
@@ -74,11 +75,11 @@
                                                     <input name="username" type="email" class="form-control" placeholder="your email">
                                                 </div>
                                                 <div class="mb-3">
-  <label for="formFile" class="form-label">Avatar</label>
-<input
-name="avatar" class="form-control" type="file" id="avatarFile" accept=".png, .jpg, .jpeg">
-</div>
-<img style="max-height: 250px; display: none;" alt="avatar preview" id="avatarPreview" />
+                                         <label for="formFile" class="form-label">Avatar</label>
+                                             <input
+                                                name="avatar" class="form-control" type="file" id="avatarFile" accept=".png, .jpg, .jpeg">
+                                             </div>
+                                           <img style="max-height: 250px; display: none;" alt="avatar preview" id="avatarPreview" />
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Address</label>

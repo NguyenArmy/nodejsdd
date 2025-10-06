@@ -52,7 +52,7 @@
                                     <%= user.id %>
                                 </td>
                                 <td>
-                                    <%= user.fullname %>
+                                    <%= user.fullName %>
                                 </td>
                                 <td>
                                     <%= user.username %>
@@ -62,11 +62,11 @@
                                 </td>
                                 <td>
                                     <div style="display: flex; gap: 10px">
-                                        <form action="/handle-view-user/<%= user.id %>" method="GET">
+                                        <form action="/admin/view-user/<%= user.id %>" method="GET">
                                             <button type="submit" class="btn btn-warning">View</button>
                 
                                         </form>
-                                        <form action="/handle-delete-user/<%= user.id %>" method="POST">
+                                        <form action="/admin/delete-user/<%= user.id %>" method="POST">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                 
                                         </form>
