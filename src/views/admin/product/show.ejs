@@ -55,7 +55,7 @@
                                                 <%= product.name %>
                                             </td>
                                             <td>
-                                                <%= product.price %>ks
+                                        <%= product.price.toLocaleString('vi-VN', { style: 'currency' , currency: 'VND' }) %>
                                             </td>
                                             <td>
                                                 <%= product.factory %>

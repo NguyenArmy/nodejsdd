@@ -168,6 +168,11 @@
         const index = input.attr("data-cart-detail-index");
         const el = document.getElementById(`cartDetails[${index}]`);
         $(el).val(newVal);
+        //set quantity for detail page
+        const eDetail = document.getElementById(`quantityDetail`);
+        if (eDetail) {
+            $(eDetail).val(newVal);
+        }
 
         //get price
         const price = input.attr("data-cart-detail-price");
