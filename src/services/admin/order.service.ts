@@ -1,9 +1,14 @@
 import { prisma } from "config/client";
-const getOrderAdmin = async () => {
+import { TOTAL_ITEM_PER_PAGE } from "config/constant";
+const getOrderAdmin = async (page: number) => {
+    const pageSize = TOTAL_ITEM_PER_PAGE;
+    const skip = (page - 1) * pageSize;
     return await prisma.order.findMany({
         include: {
             user: { select: { fullName: true } }
-        }
+        },
+        skip: skip,
+        take: pageSize
     });
 }
 
@@ -14,4 +19,11 @@ const getOrderDetailAdmin = async (orderId: number) => {
         include: { product: true }
     });
 }
-export { getOrderAdmin, getOrderDetailAdmin };
+const countTotalOrder = async () => {
+    const totalItems = await prisma.order.count();
+    const pageSize = TOTAL_ITEM_PER_PAGE;
+
+    const totalPages = Math.ceil(totalItems / pageSize);
+    return totalPages;
+}
+export { getOrderAdmin, getOrderDetailAdmin, countTotalOrder };

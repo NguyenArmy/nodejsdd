@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 
-import { getCreateUserPage, getHomePage, postCreateUser, postDeleteUser, getViewUser, postUpdateUser } from "controllers/user.controller";
+import { getCreateUserPage, getHomePage, postCreateUser, postDeleteUser, getViewUser, postUpdateUser, getProductFilterPage } from "controllers/user.controller";
 import { getAdminUserPage, getDashboardPage, getAdminProductPage, getOrderAdminDetailPage, getAdminOrderPage } from "controllers/admin/dashboard.controller";
 import fileUploadMiddleware from "src/middleware/multer";
 import { getCartPage, getCheckOutPage, getOrderHistoryPage, getProductPage, getThanksPage, postAddProductToCart, postAddToCartFromDetailPage, postDeleteProductInCart, postHandleCartToCheckout, postPlaceOrder } from "controllers/client/product.controller";
@@ -15,6 +15,7 @@ const router = express.Router();
 const webRouter = (app: Express) => {
     router.get("/", getHomePage);
     router.get("/success-redirect", getSuccessRedirectPage);
+    router.get("/products", getProductFilterPage);
     router.get("/product/:id", getProductPage);
     router.get("/login", getLoginPage);
     router.post('/login', passport.authenticate('local', {

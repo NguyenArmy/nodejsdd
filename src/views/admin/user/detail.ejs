@@ -73,7 +73,7 @@
                                                             <% roles.forEach((role,index)=> { %>
                                                                 <option value="<%-role.id %>"
                                                                     <%= role.id===user.roleId ? 'selected' : '' %>>
-                                                                    <%- role.username %>
+                                                                    <%- role.name %>
                                                                 </option>
                                                                 <%})%>
 

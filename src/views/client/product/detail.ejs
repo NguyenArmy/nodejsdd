@@ -29,6 +29,12 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/client/css/bootstrap.min.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css"
+        integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <!-- Template Stylesheet -->
     <link href="/client/css/style.css" rel="stylesheet">
 </head>
@@ -45,10 +51,10 @@
     <!-- Navbar start -->
     <%- include('../layout/header'); -%>
         <!-- Navbar End -->
-        <div class="py-5"></div>
+        <div class="py-2"></div>
         <!-- Single Product Start -->
-        <div class="container-fluid py-5 mt-5">
-            <div class="container py-5">
+        <div class="container-fluid ">
+            <div class="container ">
                 <div class="mb-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -105,9 +111,11 @@
                                 </div>
                                 <form method="post" action="/add-to-cart-from-detail-page/<%= product.id %>">
                                     <input value="1" style="display: block;" id="quantityDetail" name="quantity">
-                                <button type="submit"
-                                        class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                            <button type="submit" data-product-id="<%= product.id %>" style="margin-top: 30px;"
+                                class="btnAddToCartDetail btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary">
+                                <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                            </button>
+
                                 </form>
                             </div>
                             <div class="col-lg-12">
@@ -198,6 +206,10 @@
 
             <!-- Template Javascript -->
             <script src="/client/js/main.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
+                integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>
